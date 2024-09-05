@@ -136,7 +136,7 @@ class Handler():
     
     def is_done(self):
         
-        if(self.loss_validation_current <= self.loss_target): return True
+        if(self.loss_validation_current <= round(self.loss_target, 4)): return True
         
         #
         
