@@ -41,7 +41,7 @@ The pipeline structure is easy to modify:
 
 The learning loop is straightforward to modify:
 
-`/source/hood/handler.py -> def.start():`
+`/source/hood/handler.py - start()`
 
     while True:
         self.fit()                # Fit the full training dataset
