@@ -14,7 +14,7 @@ class Log:
         with open(self.log_path, "w") as file:
             
             file.write("epoch| train  | valid  |\n")
-            file.write("---------------------------------\n")
+            file.write("------------------------\n")
         #
     #
     

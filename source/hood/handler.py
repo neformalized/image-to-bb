@@ -105,6 +105,8 @@ class Handler():
     
     def fit(self):
         
+        print("================")
+        
         self.fit_full() if(self.buffer_size == 0) else self.fit_parts()
     #
     
@@ -190,7 +192,11 @@ class Handler():
 
     def fit_parts(self):
         
-        train_len = len(self.dataset.data_train)
+        print("epoch#{}".format(self.epoch))
+        
+        #
+        
+        train_len = len(self.dataset_train.data)
         
         #
         
@@ -202,7 +208,7 @@ class Handler():
             
             #
             
-            print("epoch#{} step {} from {}".format(self.epoch, [start, end], train_len))
+            print("step {} from {}".format([start, end], train_len))
             
             #
             
