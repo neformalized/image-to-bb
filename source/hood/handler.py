@@ -101,7 +101,7 @@ class Handler():
     
     def fit(self):
         
-        print("================")
+        print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
         
         self.fit_full() if(self.buffer_size == 0) else self.fit_parts()
     #
@@ -110,9 +110,9 @@ class Handler():
         
         if not self.dataset_validation_path: return
         
-        print("----------------")
+        print("-------------------------------")
         
-        self.loss_validation_current = round(self.model.evaluate(self.buffer_validation.x, self.buffer_validation.y, batch_size = 1), 4)
+        self.loss_validation_current = self.model.evaluate(self.buffer_validation.x, self.buffer_validation.y, batch_size = 1)
     #
     
     def checkpoint(self):
@@ -129,12 +129,12 @@ class Handler():
     
     def write_log(self):
         
-        self.log.line(self.epoch, self.loss_train_current, self.loss_validation_current)
+        self.log.line(self.epoch, round(self.loss_train_current, 4), round(self.loss_validation_current, 4))
     #
     
     def is_done(self):
         
-        if(self.loss_validation_current <= round(self.loss_target, 4)): return True
+        if(self.loss_validation_current <= self.loss_target): return True
         
         #
         
@@ -183,7 +183,7 @@ class Handler():
         
         #
         
-        self.loss_train_current = round(self.model.fit(self.buffer_train.x, self.buffer_train.y, batch_size = 1, epochs = 1).history["loss"][0], 4)
+        self.loss_train_current = self.model.fit(self.buffer_train.x, self.buffer_train.y, batch_size = 1, epochs = 1).history["loss"][0]
         
         #
     #
@@ -214,12 +214,12 @@ class Handler():
             
             #
             
-            losses.append(round(self.model.fit(self.buffer_train.x[0: end - start], self.buffer_train.y[0: end - start], batch_size = 1, epochs = 1).history["loss"][0], 4))
+            losses.append(self.model.fit(self.buffer_train.x[0: end - start], self.buffer_train.y[0: end - start], batch_size = 1, epochs = 1).history["loss"][0])
             
             #
         #
         
-        self.loss_train_current = round(sum(losses)/len(losses), 4)
+        self.loss_train_current = sum(losses)/len(losses)
         
         #
     #
