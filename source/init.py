@@ -4,8 +4,8 @@ if __name__ == "__main__":
     
     #
     
-    dataset_path_train = ["/content/dataset/train.txt", "/content/dataset/train/"]
-    dataset_path_validation = ["/content/dataset/validation.txt", "/content/dataset/validation/"]
+    dataset_path_train = ["/content/image-to-bb/dataset/train.txt", "/content/image-to-bb/dataset/train/"]
+    dataset_path_validation = ["/content/image-to-bb/dataset/validation.txt", "/content/image-to-bb/dataset/validation/"]
     #dataset_path_validation = False
     
     #
