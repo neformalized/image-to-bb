@@ -12,45 +12,33 @@ Edit init file for pipeline specific configuration
 
 #
 
-Learning Loop is easy to modify
+Pipeline Struct is easy to modify
+
+
+    /source/hood/buffer.py # transformed x,y data holder class
+    /source/hood/builder.py # keras model struct
+    /source/hood/dataset.py # dataset holder class
+    /source/hood/handler.py # main pipeline class
+    /source/hood/image.py # model input encoder
+    /source/hood/label.py # model output encoder
+    /source/hood/log.py # log class
+
+#
+
+Learning Loop is easy to modify as well
 
 /source/hood/handler.py - strart()
 
 
-while True:
+    while True:
 
-  self.fit() # fit full train dataset
+        self.fit() # fit full train dataset
+        self.evaluate() # evaluate validation dataset
+        self.checkpoint() # save weights
+        self.write_log() # write epoch log
+        if self.is_done(): break # break condition state
+        self.updates() # update variables, model, etc
   
-  self.evaluate() # evaluate validation dataset
-  
-  self.checkpoint() # save weights
-  
-  self.write_log() # write epoch log
-  
-  if self.is_done(): break # break condition state
-  
-  self.updates() # update variables, model, etc
-  
-
-#
-
-Pipeline Struct is easy to modify as well
-
-
-*hood/buffer.py # transformed x,y data holder class
-
-*hood/builder.py # keras model struct
-
-*hood/dataset.py # dataset holder class
-
-*hood/image.py # model input encoder
-
-*hood/label.py # model output encoder
-
-*hood/log.py # log class
-
-
-*hood/handler.py # main pipeline class
 
 #
 
