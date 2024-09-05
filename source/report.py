@@ -13,7 +13,7 @@ dataset_validation = dataset.Dataset(dataset_path_validation)
 for item in dataset_validation.data:
     
     x = image.process(item[0], shape)
-    y = list(map(float, label.process(item[1])))
+    y = label.process(item[1])
     
     result = model.predict(numpy.expand_dims(x, axis = 0), verbose = 0)
 

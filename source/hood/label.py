@@ -1,4 +1,4 @@
 def process(arr):
     
-    return arr.split(",")
+    return list(map(float, arr.split(",")))
 #
