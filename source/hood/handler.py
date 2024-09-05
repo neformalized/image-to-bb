@@ -122,6 +122,8 @@ class Handler():
         if(self.loss_validation_current < self.loss_validation_record):
             
             self.model.save(self.save_path + "model_evaluated.keras")
+            
+            print("record!")
         #
     #
     
