@@ -1,4 +1,4 @@
-from hood import dataset, buffer, builder, image, label, log, report
+from hood import dataset, buffer, builder, image, label, log
 
 class Handler():
     
@@ -97,10 +97,6 @@ class Handler():
             
             self.updates()
         #
-        
-        if self.dataset_validation_path: report.visualise(self.model, self.buffer_validation, self.input_image)
-        
-        #
     #
     
     def fit(self):
@@ -113,6 +109,8 @@ class Handler():
     def evaluate(self):
         
         if not self.dataset_validation_path: return
+        
+        print("----------------")
         
         self.loss_validation_current = round(self.model.evaluate(self.buffer_validation.x, self.buffer_validation.y, batch_size = 1), 4)
     #
