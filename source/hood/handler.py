@@ -146,8 +146,11 @@ class Handler():
         if(self.loss_validation_current > self.loss_validation_last):
             
             new_lr = self.model.optimizer.learning_rate * 0.76
-            self.model.optimizer.learning_rate = new_lr
+            
+            print("new learning_rate")
             print(new_lr)
+            
+            self.model.optimizer.learning_rate = new_lr
         #
         
         if(self.loss_train_current < self.loss_train_record): self.loss_train_record = self.loss_train_current

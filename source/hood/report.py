@@ -1,4 +1,5 @@
 import matplotlib as plt
+import cv2, numpy
 
 def visualise(model, validation, shape):
     
