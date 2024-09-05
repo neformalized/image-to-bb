@@ -17,6 +17,9 @@ def create(input_shape, output_shape):
     model.add(Conv2D(32, (3, 3), activation='relu', padding='valid'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     
+    model.add(Conv2D(32, (3, 3), activation='relu', padding='valid'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    
     model.add(Flatten())
     model.add(Dense(256, activation='relu'))
     model.add(Dense(128, activation='relu'))

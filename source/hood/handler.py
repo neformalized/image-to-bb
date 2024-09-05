@@ -117,11 +117,11 @@ class Handler():
     
     def checkpoint(self):
         
-        self.model.save(self.save_path + "model.h5")
+        self.model.save(self.save_path + "model.keras")
         
         if(self.loss_validation_current < self.loss_validation_record):
             
-            self.model.save(self.save_path + "model_evaluated.h5")
+            self.model.save(self.save_path + "model_evaluated.keras")
         #
     #
     
