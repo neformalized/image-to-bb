@@ -61,7 +61,7 @@ The pipeline modules are easy to modify:
 
 ## Report
 
-`/source/report.py` just visualize a learned model predictions with validation dataset (*matplotlib required)
+`/source/report.py` simply visualizes the model's predictions using the validation dataset (requires matplotlib):
 
 #
 
