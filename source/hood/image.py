@@ -3,7 +3,8 @@ import cv2
 def process(image_path, target_size):
     
     image = cv2.imread(image_path)
-        
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    
     h, w = image.shape[:2]
     target_h, target_w = target_size
     
