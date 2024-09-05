@@ -8,6 +8,12 @@ Try it yourself: [Google Colab Example](https://colab.research.google.com/drive/
 
 #
 
+## Requirements
+
+    tensorflow, numpy, cv2
+
+#
+
 ## Configuration
 
 Edit the `/source/init.py` file for pipeline-specific configuration:
@@ -20,20 +26,6 @@ Edit the `/source/init.py` file for pipeline-specific configuration:
     output_labels = 4  # Number of output labels
     loss_target = 0.05  # Target loss value to stop training
     save_path = "/content/"  # Path to save the model and logs
-
-#
-
-## Pipeline Structure
-
-The pipeline structure is easy to modify:
-
-    /source/hood/buffer.py   # Transformed x, y data holder class
-    /source/hood/builder.py  # Keras model structure
-    /source/hood/dataset.py  # Dataset holder class
-    /source/hood/handler.py  # Main pipeline class
-    /source/hood/image.py    # Model input encoder
-    /source/hood/label.py    # Model output encoder
-    /source/hood/log.py      # Logging class
 
 #
 
@@ -53,6 +45,25 @@ The learning loop is straightforward to modify:
 
 #
 
+## Pipeline Modules
+
+The pipeline modules are easy to modify:
+
+    /source/hood/buffer.py   # Transformed x, y data holder class
+    /source/hood/builder.py  # Keras model structure
+    /source/hood/dataset.py  # Dataset holder class
+    /source/hood/handler.py  # Main pipeline class
+    /source/hood/image.py    # Model input encoder
+    /source/hood/label.py    # Model output encoder
+    /source/hood/log.py      # Logging class
+
+#
+
+## Report
+
+`/source/report.py` just visualize a learned model predictions with validation dataset (*matplotlib required)
+
+#
 
 [LinkedIn Profile](https://www.linkedin.com/in/sergey-syschenko-027b01318/)
 
