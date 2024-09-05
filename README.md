@@ -1,46 +1,59 @@
 # image-to-bb
 
-Simple, stable and rapidly solution to learn image-to-bounding_box models
+A simple and fast pipeline for training models that convert images to bounding box coordinates.
+The pipeline is easy to configure, you can quickly and easily swap in your own dataset and model. Just edit a few settings, and it's ready to run, even in Google Colab.
 
-https://colab.research.google.com/drive/197-yMBIJNYKqiZvkiz-WuZR2u5u5-XUr?usp=sharing (Try it yourself simply)
 
-#
-
-Edit init file for pipeline specific configuration
-
-/source/init.py
+Try it yourself: [Google Colab Example](https://colab.research.google.com/drive/197-yMBIJNYKqiZvkiz-WuZR2u5u5-XUr?usp=sharing)
 
 #
 
-Pipeline Struct is easy to modify
+## Configuration
 
+Edit the `/source/init.py` file for pipeline-specific configuration:
 
-    /source/hood/buffer.py # transformed x,y data holder class
-    /source/hood/builder.py # keras model struct
-    /source/hood/dataset.py # dataset holder class
-    /source/hood/handler.py # main pipeline class
-    /source/hood/image.py # model input encoder
-    /source/hood/label.py # model output encoder
-    /source/hood/log.py # log class
+    dataset_path_train = ["path-to-train-txt", "path-to-train-folder"]  # Paths to the training dataset
+    dataset_path_validation = ["path-to-validation-txt", "path-to-validation-folder"]  # Paths to the validation dataset
+    #dataset_path_validation = False  # Uncomment if no validation dataset is available
+    buffer_size = 2000  # Size of the training buffer; set to 0 to load the whole dataset at once (requires robust hardware)
+    input_image = (139, 132)  # Input image shape
+    output_labels = 4  # Number of output labels
+    loss_target = 0.05  # Target loss value to stop training
+    save_path = "/content/"  # Path to save the model and logs
 
 #
 
-Learning Loop is easy to modify as well
+## Pipeline Structure
 
-/source/hood/handler.py - strart()
+The pipeline structure is easy to modify:
 
+    /source/hood/buffer.py   # Transformed x, y data holder class
+    /source/hood/builder.py  # Keras model structure
+    /source/hood/dataset.py  # Dataset holder class
+    /source/hood/handler.py  # Main pipeline class
+    /source/hood/image.py    # Model input encoder
+    /source/hood/label.py    # Model output encoder
+    /source/hood/log.py      # Logging class
+
+#
+
+## Learning Loop
+
+The learning loop is straightforward to modify:
+
+`/source/hood/handler.py -> def.start():`
 
     while True:
-
-        self.fit() # fit full train dataset
-        self.evaluate() # evaluate validation dataset
-        self.checkpoint() # save weights
-        self.write_log() # write epoch log
-        if self.is_done(): break # break condition state
-        self.updates() # update variables, model, etc
-  
+        self.fit()                # Fit the full training dataset
+        self.evaluate()           # Evaluate the validation dataset
+        self.checkpoint()         # Save model weights
+        self.write_log()          # Write epoch log
+        if self.is_done(): break  # Check break condition
+        self.updates()            # Update variables, model, etc.
 
 #
 
-Feel free to contact me if you have any question!
-https://www.linkedin.com/in/sergey-syschenko-027b01318/
+
+[LinkedIn Profile](https://www.linkedin.com/in/sergey-syschenko-027b01318/)
+
+Feel free to contact me if you have any questions!
