@@ -4,7 +4,9 @@ A simple and fast pipeline for training models that convert images to bounding b
 The pipeline is easy to configure, you can quickly and easily swap in your own dataset and model. Just edit a few settings, and it's ready to run, even in Google Colab.
 
 
-Try it yourself: [Google Colab Example](https://colab.research.google.com/drive/197-yMBIJNYKqiZvkiz-WuZR2u5u5-XUr?usp=sharing)
+Try it yourself: [Google Colab Link](https://colab.research.google.com/drive/197-yMBIJNYKqiZvkiz-WuZR2u5u5-XUr?usp=sharing)
+
+Or see result: [Google Colab Link](https://colab.research.google.com/drive/1iu1jp-sATemJJ8AzH8OSMl9kZmOc6ROq?usp=sharing)
 
 #
 
