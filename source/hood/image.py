@@ -7,5 +7,5 @@ def process(image_path, target_size):
     image = cv2.resize(image, (target_size[0], target_size[1]))
     image = image/255
     
-    return processed
+    return image
 #
